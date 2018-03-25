@@ -2,18 +2,14 @@
     "name": "miniprogram-types",
     "version": "0.0.1",
     "description": "Typings for miniprogram",
-    "main": "index.js",
+    "main": "",
     "types": "lib/index.d.ts",
     "repository": "git@github.com:thundernet8/miniprogram-types.git",
     "author": "wuxueqian <wuxueqian2010@hotmail.com>",
     "license": "MIT",
-    "keywords": [
-        "wechat",
-        "wechat-miniprogram",
-        "typings"
-    ],
+    "keywords": ["wechat", "wechat-miniprogram", "typings"],
     "scripts": {
-        "build": "rimraf lib cp src/index.d.ts lib/",
+        "build": "rimraf lib && mkdirp lib && cp src/**.d.ts lib/",
         "prepublishOnly": "npm run build",
         "lint": "npm run lint:ts",
         "lint:ts": "tslint -e node_modules typings -c .tslintrc.json src/**/*.ts",
@@ -22,16 +18,13 @@
         "format": "prettier --write"
     },
     "lint-staged": {
-        "src/**/*.{ts,tsx}": [
-            "format",
-            "lint-staged:ts",
-            "git add"
-        ]
+        "src/**/*.{ts,tsx}": ["format", "lint-staged:ts", "git add"]
     },
     "pre-commit": "lint-staged",
     "dependencies": {},
     "devDependencies": {
         "lint-staged": "6",
+        "mkdirp": "^0.5.1",
         "pre-commit": "^1.2.2",
         "prettier": "^1.11.1",
         "rimraf": "^2.6.2",

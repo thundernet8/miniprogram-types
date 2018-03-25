@@ -1,8 +1,8 @@
 {
     "name": "miniprogram-types",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Typings for miniprogram",
-    "main": "",
+    "main": "index.js",
     "types": "lib/index.d.ts",
     "repository": "git@github.com:thundernet8/miniprogram-types.git",
     "author": "wuxueqian <wuxueqian2010@hotmail.com>",

@@ -1,5 +1,5 @@
 module.exports = {
-    wx: global.wx,
+    wx: wx,
     getApp: global.getApp,
-    getCurrentPages: global.getCurrentPages
+    getCurrentPages: getCurrentPages
 };

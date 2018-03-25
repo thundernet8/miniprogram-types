@@ -29,9 +29,7 @@
         ]
     },
     "pre-commit": "lint-staged",
-    "dependencies": {
-        "@types/node": "^9.6.0"
-    },
+    "dependencies": {},
     "devDependencies": {
         "lint-staged": "6",
         "pre-commit": "^1.2.2",

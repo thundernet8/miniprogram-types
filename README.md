@@ -1,2 +1,3 @@
 # miniprogram-types
-Typings for miniprogram
+
+Typings for miniprogram with mpvue

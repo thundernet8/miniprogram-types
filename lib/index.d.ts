@@ -1,6 +1,6 @@
-import WX from './wx';
-import App from './app';
-import Page from './page';
+import WX from "./wx";
+import App from "./app";
+import Page from "./page";
 
 export = MP;
 

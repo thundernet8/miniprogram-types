@@ -7,6 +7,7 @@ interface App {
     getToken(): string;
     getOpenId(): string;
     getUnionId(): string;
+    [key: string]: any;
 }
 
 interface GlobalData {

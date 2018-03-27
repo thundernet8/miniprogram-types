@@ -48,14 +48,14 @@ interface WX {
      * @see https://mp.weixin.qq.com/debug/wxadoc/dev/api/api-react.html#wxshowtoastobject
      * @param obj
      */
-    showToast(obj): void;
+    showToast(obj: ShowToastParamObject): void;
 
     /**
      * 显示 loading 提示框, 需主动调用 wx.hideLoading 才能关闭提示框
      * @see https://mp.weixin.qq.com/debug/wxadoc/dev/api/api-react.html#wxshowloadingobject
      * @param obj
      */
-    showLoading(obj): void;
+    showLoading(obj: ShowLoadingParamObject): void;
 
     /**
      * 隐藏消息提示框
@@ -74,14 +74,14 @@ interface WX {
      * @see https://mp.weixin.qq.com/debug/wxadoc/dev/api/api-react.html#wxshowmodalobject
      * @param obj
      */
-    showModal(obj): void;
+    showModal(obj: ShowModalParamObject): void;
 
     /**
      * 显示操作菜单
      * @see https://mp.weixin.qq.com/debug/wxadoc/dev/api/api-react.html#wxshowactionsheetobject
      * @param obj
      */
-    showActionSheet(obj): void;
+    showActionSheet(obj: ShowActionSheetParamObject): void;
 
     // - 设置导航条
 
@@ -90,7 +90,7 @@ interface WX {
      * @see https://mp.weixin.qq.com/debug/wxadoc/dev/api/ui.html#wxsetnavigationbartitleobject
      * @param obj
      */
-    setNavigationBarTitle(obj): void;
+    setNavigationBarTitle(obj: SetNavigationBarTitleParamObject): void;
 
     /**
      * 在当前页面显示导航条加载动画
@@ -109,7 +109,7 @@ interface WX {
      * @see https://mp.weixin.qq.com/debug/wxadoc/dev/api/setNavigationBarColor.html
      * @param obj
      */
-    setNavigationBarColor(obj): void;
+    setNavigationBarColor(obj: SetNavigationBarColorParamObject): void;
 
     // - 设置tabBar
 
@@ -118,56 +118,56 @@ interface WX {
      * @see https://mp.weixin.qq.com/debug/wxadoc/dev/api/ui-tabbar.html#wxsettabbarbadgeobject
      * @param obj
      */
-    setTabBarBadge(obj): void;
+    setTabBarBadge(obj: SetTabBarBadgeParamObject): void;
 
     /**
      * 移除 tabBar 某一项右上角的文本
      * @see https://mp.weixin.qq.com/debug/wxadoc/dev/api/ui-tabbar.html#wxremovetabbarbadgeobject
      * @param obj
      */
-    removeTabBarBadge(obj): void;
+    removeTabBarBadge(obj: RemoveTabBarBadgeParamObject): void;
 
     /**
      * 显示 tabBar 某一项的右上角的红点
      * @see https://mp.weixin.qq.com/debug/wxadoc/dev/api/ui-tabbar.html#wxshowtabbarreddotobject
      * @param obj
      */
-    showTabBarRedDot(obj): void;
+    showTabBarRedDot(obj: ShowTabBarRedDotParamObject): void;
 
     /**
      * 隐藏 tabBar 某一项的右上角的红点
      * @see https://mp.weixin.qq.com/debug/wxadoc/dev/api/ui-tabbar.html#wxhidetabbarreddotobject
      * @param obj
      */
-    hideTabBarRedDot(obj): void;
+    hideTabBarRedDot(obj: HideTabBarRedDotParamObject): void;
 
     /**
      * 动态设置 tabBar 的整体样式
      * @see https://mp.weixin.qq.com/debug/wxadoc/dev/api/ui-tabbar.html#wxsettabbarstyleobject
      * @param obj
      */
-    setTabBarStyle(obj): void;
+    setTabBarStyle(obj: SetTabBarStyleParamObject): void;
 
     /**
      * 动态设置 tabBar 某一项的内容
      * @see https://mp.weixin.qq.com/debug/wxadoc/dev/api/ui-tabbar.html#wxsettabbaritemobject
      * @param obj
      */
-    setTabBarItem(obj): void;
+    setTabBarItem(obj: SetTabBarItemParamObject): void;
 
     /**
      * 显示 tabBar
      * @see https://mp.weixin.qq.com/debug/wxadoc/dev/api/ui-tabbar.html#wxshowtabbarobject
      * @param obj
      */
-    showTabBar(obj): void;
+    showTabBar(obj: ShowTabBarParamObject): void;
 
     /**
      * 隐藏 tabBar
      * @see https://mp.weixin.qq.com/debug/wxadoc/dev/api/ui-tabbar.html#wxhidetabbarobject
      * @param obj
      */
-    hideTabBar(obj): void;
+    hideTabBar(obj: HideTabBarParamObject): void;
 
     // - 设置置顶信息
 
@@ -592,6 +592,230 @@ interface DownloadFileParamObject extends BaseParamObject {
      * @param statusCode {Number} 开发者服务器返回的 HTTP 状态码
      */
     success?: (tempFilePath: string, statusCode: number) => void;
+}
+
+interface ShowToastParamObject extends BaseParamObject {
+    /**
+     * 提示的内容
+     */
+    title: string;
+
+    /**
+     * 图标，有效值 "success", "loading", "none"
+     */
+    icon?: "success" | "loading" | "none";
+
+    /**
+     * 自定义图标的本地路径，image 的优先级高于 icon
+     */
+    image?: string;
+
+    /**
+     * 提示的延迟时间，单位毫秒，默认：1500
+     */
+    duration?: number;
+
+    /**
+     * 是否显示透明蒙层，防止触摸穿透，默认：false
+     */
+    mask?: boolean;
+}
+
+interface ShowLoadingParamObject extends BaseParamObject {
+    /**
+     * 提示的内容
+     */
+    title: string;
+
+    /**
+     * 是否显示透明蒙层，防止触摸穿透，默认：false
+     */
+    mask?: boolean;
+}
+
+interface ShowModalParamObject extends BaseParamObject {
+    /**
+     * 提示的标题
+     */
+    title: string;
+
+    /**
+     * 提示的内容
+     */
+    content: string;
+
+    /**
+     * 是否显示取消按钮，默认为 true
+     */
+    showCancel?: boolean;
+
+    /**
+     * 取消按钮的文字，默认为"取消"，最多 4 个字符
+     */
+    cancelText?: string;
+
+    /**
+     * 取消按钮的文字颜色，默认为"#000000"
+     */
+    cancelColor?: string;
+
+    /**
+     * 确定按钮的文字，默认为"确定"，最多 4 个字符
+     */
+    confirmText?: string;
+
+    /**
+     * 确定按钮的文字颜色，默认为"#3CC51F"
+     */
+    confirmColor?: string;
+
+    /**
+     * 接口调用成功的回调函数
+     * @param confirm 为 true 时，表示用户点击了确定按钮
+     * @param cancel 为 true 时，表示用户点击了取消（用于 Android 系统区分点击蒙层关闭还是点击取消按钮关闭）
+     */
+    success: (confirm: boolean, cancel: boolean) => void;
+}
+
+interface ShowActionSheetParamObject extends BaseParamObject {
+    /**
+     * 按钮的文字数组，数组长度最大为6个
+     */
+    itemList: string[];
+
+    /**
+     * 按钮的文字颜色，默认为"#000000"
+     */
+    itemColor?: string;
+
+    /**
+     * 接口调用成功的回调函数
+     * @param tapIndex 用户点击的按钮，从上到下的顺序，从0开始
+     */
+    success?: (tapIndex: number) => void;
+}
+
+interface SetNavigationBarTitleParamObject extends BaseParamObject {
+    /**
+     * 页面标题
+     */
+    title: string;
+}
+
+interface SetNavigationBarColorParamObject extends BaseParamObject {
+    /**
+     * 前景颜色值，包括按钮、标题、状态栏的颜色，仅支持 #ffffff 和 #000000
+     */
+    frontColor: "#ffffff" | "#000000";
+
+    /**
+     * 背景颜色值，有效值为十六进制颜色
+     */
+    backgroundColor: string;
+
+    /**
+     * 动画效果
+     * @param duration 动画变化时间，默认0，单位：毫秒
+     * @param timingFunc 动画变化方式，默认 linear
+     */
+    animation?: { duration: number; timingFunc: "linear" | "easeIn" | "easeOut" | "easeInOut" };
+
+    /**
+     * 接口调用成功的回调函数
+     * @param errMsg 调用结果
+     */
+    success?: (errMsg: string) => void;
+}
+
+interface SetTabBarBadgeParamObject extends BaseParamObject {
+    /**
+     * tabBar的哪一项，从左边算起
+     */
+    index: number;
+
+    /**
+     * 显示的文本，超过 3 个字符则显示成"…"
+     */
+    text: string;
+}
+
+interface RemoveTabBarBadgeParamObject extends BaseParamObject {
+    /**
+     * tabBar的哪一项，从左边算起
+     */
+    index: number;
+}
+
+interface ShowTabBarRedDotParamObject extends BaseParamObject {
+    /**
+     * tabBar的哪一项，从左边算起
+     */
+    index: number;
+}
+
+interface HideTabBarRedDotParamObject extends BaseParamObject {
+    /**
+     * tabBar的哪一项，从左边算起
+     */
+    index: number;
+}
+
+interface SetTabBarStyleParamObject extends BaseParamObject {
+    /**
+     * tab 上的文字默认颜色
+     */
+    color?: string;
+
+    /**
+     * tab 上的文字选中时的颜色
+     */
+    selectedColor?: string;
+
+    /**
+     * tab 的背景色
+     */
+    backgroundColor?: string;
+
+    /**
+     * tabbar上边框的颜色， 仅支持 black/white
+     */
+    borderStyle?: "black" | "white";
+}
+
+interface SetTabBarItemParamObject extends BaseParamObject {
+    /**
+     * tabBar 的哪一项，从左边算起
+     */
+    index: number;
+
+    /**
+     * tab 上按钮文字
+     */
+    text?: string;
+
+    /**
+     * 图片路径，icon 大小限制为40kb，建议尺寸为 81px * 81px，当 postion 为 top 时，此参数无效，不支持网络图片
+     */
+    iconPath?: string;
+
+    /**
+     * 选中时的图片路径，icon 大小限制为40kb，建议尺寸为 81px * 81px ，当 postion 为 top 时，此参数无效
+     */
+    selectedIconPath?: string;
+}
+
+interface ShowTabBarParamObject extends BaseParamObject {
+    /**
+     * 是否需要动画效果，默认无
+     */
+    animation?: boolean;
+}
+
+interface HideTabBarParamObject extends BaseParamObject {
+    /**
+     * 是否需要动画效果，默认无
+     */
+    animation?: boolean;
 }
 
 interface NavParamObject extends BaseParamObject {

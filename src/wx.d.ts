@@ -674,7 +674,7 @@ interface ShowModalParamObject extends BaseParamObject {
      * @param confirm 为 true 时，表示用户点击了确定按钮
      * @param cancel 为 true 时，表示用户点击了取消（用于 Android 系统区分点击蒙层关闭还是点击取消按钮关闭）
      */
-    success: (confirm: boolean, cancel: boolean) => void;
+    success?: (confirm: boolean, cancel: boolean) => void;
 }
 
 interface ShowActionSheetParamObject extends BaseParamObject {

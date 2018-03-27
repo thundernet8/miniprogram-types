@@ -541,9 +541,9 @@ interface RequestParamObject extends BaseParamObject {
     url: string;
     data?: Object | String | ArrayBuffer;
     header?: { [key: string]: any };
-    method?: "OPTIONS" | "GET" | "HEAD" | "POST" | "PUT" | "DELETE" | "TRACE" | "CONNECT";
-    dataType?: "json" | "text";
-    responseType?: "text" | "arraybuffer";
+    method?: 'OPTIONS' | 'GET' | 'HEAD' | 'POST' | 'PUT' | 'DELETE' | 'TRACE' | 'CONNECT';
+    dataType?: 'json' | 'text';
+    responseType?: 'text' | 'arraybuffer';
 }
 
 interface UploadFileParamObject extends BaseParamObject {
@@ -603,7 +603,7 @@ interface ShowToastParamObject extends BaseParamObject {
     /**
      * 图标，有效值 "success", "loading", "none"
      */
-    icon?: "success" | "loading" | "none";
+    icon?: 'success' | 'loading' | 'none';
 
     /**
      * 自定义图标的本地路径，image 的优先级高于 icon
@@ -706,7 +706,7 @@ interface SetNavigationBarColorParamObject extends BaseParamObject {
     /**
      * 前景颜色值，包括按钮、标题、状态栏的颜色，仅支持 #ffffff 和 #000000
      */
-    frontColor: "#ffffff" | "#000000";
+    frontColor: '#ffffff' | '#000000';
 
     /**
      * 背景颜色值，有效值为十六进制颜色
@@ -718,7 +718,7 @@ interface SetNavigationBarColorParamObject extends BaseParamObject {
      * @param duration 动画变化时间，默认0，单位：毫秒
      * @param timingFunc 动画变化方式，默认 linear
      */
-    animation?: { duration: number; timingFunc: "linear" | "easeIn" | "easeOut" | "easeInOut" };
+    animation?: { duration: number; timingFunc: 'linear' | 'easeIn' | 'easeOut' | 'easeInOut' };
 
     /**
      * 接口调用成功的回调函数
@@ -779,7 +779,7 @@ interface SetTabBarStyleParamObject extends BaseParamObject {
     /**
      * tabbar上边框的颜色， 仅支持 black/white
      */
-    borderStyle?: "black" | "white";
+    borderStyle?: 'black' | 'white';
 }
 
 interface SetTabBarItemParamObject extends BaseParamObject {

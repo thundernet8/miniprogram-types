@@ -48,7 +48,7 @@ interface WX {
      * @see https://mp.weixin.qq.com/debug/wxadoc/dev/api/api-react.html#wxshowtoastobject
      * @param obj
      */
-    showToast(obj): void;
+    showToast(obj: ShowToastParamObject): void;
 
     /**
      * 显示 loading 提示框, 需主动调用 wx.hideLoading 才能关闭提示框
@@ -592,6 +592,33 @@ interface DownloadFileParamObject extends BaseParamObject {
      * @param statusCode {Number} 开发者服务器返回的 HTTP 状态码
      */
     success?: (tempFilePath: string, statusCode: number) => void;
+}
+
+interface ShowToastParamObject extends BaseParamObject {
+    /**
+     * 提示的内容
+     */
+    title: string;
+
+    /**
+     * 图标，有效值 "success", "loading", "none"
+     */
+    icon?: "success" | "loading" | "none";
+
+    /**
+     * 自定义图标的本地路径，image 的优先级高于 icon
+     */
+    image?: string;
+
+    /**
+     * 提示的延迟时间，单位毫秒，默认：1500
+     */
+    duration?: number;
+
+    /**
+     * 是否显示透明蒙层，防止触摸穿透，默认：false
+     */
+    mask?: boolean;
 }
 
 interface NavParamObject extends BaseParamObject {

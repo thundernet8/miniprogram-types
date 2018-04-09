@@ -1,3 +1,9 @@
+## Note
+
+**Deprecated**
+
+Use [common-mpvue](https://github.com/thundernet8/common-mpvue) instead.
+
 ## miniprogram-types
 
 Typings for miniprogram with mpvue
